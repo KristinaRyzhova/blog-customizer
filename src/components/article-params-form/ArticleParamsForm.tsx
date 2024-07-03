@@ -6,8 +6,21 @@ import { Button } from 'components/button';
 import { Text } from '../text';
 
 import styles from './ArticleParamsForm.module.scss';
+
 import { Select } from '../select';
-import { ArticleStateType, OptionType, defaultArticleState, fontFamilyOptions } from 'src/constants/articleProps';
+import { RadioGroup } from '../radio-group';
+import { Separator } from '../separator';
+
+import {
+	ArticleStateType,
+	OptionType,
+	defaultArticleState,
+	fontFamilyOptions,
+	fontSizeOptions,
+	fontColors,
+	backgroundColors,
+	contentWidthArr
+} from 'src/constants/articleProps';
 
 type TArticleFormProps = {
 	setNewParams: (newState: ArticleStateType)=> void
@@ -55,7 +68,37 @@ export const ArticleParamsForm = ({ setNewParams }: TArticleFormProps) => {
 						onChange={(selected) => {
 							handleOptionChange('fontFamilyOption', selected);
 						}} />
-                    
+                    <RadioGroup
+						name='fontSize'
+						title='Размер Шрифта'
+						options={fontSizeOptions}
+						selected={articleParams.fontSizeOption}
+						onChange={(selected) => {
+							handleOptionChange('fontSizeOption', selected);
+						}}
+					/>
+                    <Select
+                        title={'Цвет шрифта'}
+                        options={fontColors}
+						selected={articleParams.fontColor}
+						onChange={(selected) => {
+							handleOptionChange('fontColor', selected);
+						}} />
+                    <Separator />
+                    <Select
+                        title={'Цвет фона'}
+                        options={backgroundColors}
+						selected={articleParams.backgroundColor}
+						onChange={(selected) => {
+							handleOptionChange('backgroundColor', selected);
+						}} />
+                    <Select
+                        title={'Ширина контента'}
+                        options={contentWidthArr}
+						selected={articleParams.contentWidth}
+						onChange={(selected) => {
+							handleOptionChange('contentWidth', selected);
+						}} />
                     <div className={styles.bottomContainer}>
                         <Button title='Сбросить' type='reset' />
                         <Button title='Применить' type='submit' />
