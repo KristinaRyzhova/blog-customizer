@@ -45,8 +45,7 @@ export const ArticleParamsForm = ({ setNewParams }: TArticleFormProps) => {
 		setNewParams(articleParams);
 	}
 
-	function handleResetOptions(e: FormEvent<HTMLFormElement>) {
-		e.preventDefault();
+	function handleResetOptions() {
 		setNewParams(defaultArticleState);
 		setArticleParams(defaultArticleState);
     }
