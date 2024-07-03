@@ -10,10 +10,20 @@
 	cursor: pointer;
 }
 
-.button:active {
-	background: var(--gold, #ffc802);
+.button {
+	background: white;
+
+	&:hover {
+		color: white;
+		background: black;
+	}
 }
 
-.button:hover {
+.button:last-child {
 	background: var(--gold, #ffc802);
+
+	&:hover {
+		color: black;
+		background: var(--gold, #ffedab);
+	}
 }
