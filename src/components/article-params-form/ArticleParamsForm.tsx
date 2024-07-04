@@ -109,6 +109,5 @@ export const ArticleParamsForm = ({ setNewParams }: TArticleFormProps) => {
 				</form>
 			</aside>
 		</div>
-
 	);
 };
